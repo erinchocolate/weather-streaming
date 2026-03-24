@@ -196,17 +196,6 @@ streaming/
 - Analyse correlations between weather variables (temperature, humidity, pressure) and egg production
 - Build a simple dashboard to visualise trends over time
 
-## What This Demonstrates
-
-- **Serverless compute**: AWS Lambda triggered by EventBridge for scheduled data ingestion
-- **Event-driven architecture**: Confluent Cloud Kafka as the central message broker
-- **Stream processing**: ksqlDB tumbling window aggregation computing 5-minute averages in real time
-- **Data lake**: S3 + Glue + Athena for serverless analytics on streaming data
-- **Kafka Connect**: Managed S3 Sink Connectors for code-free data movement
-- **Infrastructure as Code**: Terraform provisioning all AWS resources
-- **Python data processing**: Producer/consumer pattern with the official Confluent Kafka client
-- **SQL**: Athena queries on S3 data lake, ksqlDB stream processing, PostgreSQL analytical queries
-
 ## Teardown
 
 ```bash
