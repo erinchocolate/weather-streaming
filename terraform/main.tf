@@ -38,7 +38,20 @@ resource "aws_glue_catalog_table" "weather_raw" {
   table_type = "EXTERNAL_TABLE"
 
   parameters = {
-    "classification" = "json"
+    "classification"                 = "json"
+    "projection.enabled"             = "true"
+    "projection.year.type"           = "integer"
+    "projection.year.range"          = "2024,2030"
+    "projection.month.type"          = "integer"
+    "projection.month.range"         = "1,12"
+    "projection.month.digits"        = "2"
+    "projection.day.type"            = "integer"
+    "projection.day.range"           = "1,31"
+    "projection.day.digits"          = "2"
+    "projection.hour.type"           = "integer"
+    "projection.hour.range"          = "0,23"
+    "projection.hour.digits"         = "2"
+    "storage.location.template"      = "s3://${aws_s3_bucket.data_lake.bucket}/topics/weather-raw/year=$${year}/month=$${month}/day=$${day}/hour=$${hour}"
   }
 
   partition_keys {
@@ -117,7 +130,20 @@ resource "aws_glue_catalog_table" "weather_aggregated" {
   table_type = "EXTERNAL_TABLE"
 
   parameters = {
-    "classification" = "json"
+    "classification"                 = "json"
+    "projection.enabled"             = "true"
+    "projection.year.type"           = "integer"
+    "projection.year.range"          = "2024,2030"
+    "projection.month.type"          = "integer"
+    "projection.month.range"         = "1,12"
+    "projection.month.digits"        = "2"
+    "projection.day.type"            = "integer"
+    "projection.day.range"           = "1,31"
+    "projection.day.digits"          = "2"
+    "projection.hour.type"           = "integer"
+    "projection.hour.range"          = "0,23"
+    "projection.hour.digits"         = "2"
+    "storage.location.template"      = "s3://${aws_s3_bucket.data_lake.bucket}/topics/weather-aggregated/year=$${year}/month=$${month}/day=$${day}/hour=$${hour}"
   }
 
   partition_keys {
