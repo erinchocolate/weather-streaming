@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+*.egg-info/
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfvars
+terraform/lambda-package.zip
+terraform/.terraform.lock.hcl
+
+# AWS CLI bundle
+aws/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
